@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fully Functional To-Do App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>📝 To-Do List </h1>
+
+      <form id="addForm" class="add-form" autocomplete="off">
+        <input id="taskText" type="text" placeholder="Enter task..." aria-label="Task" required />
+        <input id="taskDate" type="datetime-local" aria-label="Due date (optional)" />
+        <button type="submit" id="addBtn">Add</button>
+      </form>
+    </header>
+
+    <section class="controls">
+      <div class="filters" role="tablist" aria-label="Filter tasks">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="active">Active</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+        <button class="filter-btn" data-filter="today">Due Today</button>
+      </div>
+
+      <div class="right-controls">
+        <label class="sort-label">Sort:
+          <select id="sortSelect" aria-label="Sort tasks">
+            <option value="dateAsc">Date ↑</option>
+            <option value="dateDesc">Date ↓</option>
+            <option value="createdDesc">Newest</option>
+            <option value="createdAsc">Oldest</option>
+          </select>
+        </label>
+
+        <button id="clearCompleted" class="small">Clear Completed</button>
+        <button id="clearAll" class="small danger">Clear All</button>
+      </div>
+    </section>
+
+    <section class="list-wrap">
+      <ul id="taskList" class="task-list" aria-live="polite"></ul>
+    </section>
+
+    <footer class="footer">
+      <span id="stats"></span>
+      <small>Saved locally in your browser</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
